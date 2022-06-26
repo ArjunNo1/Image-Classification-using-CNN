@@ -1,0 +1,359 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="../static/css/style.css" />
+
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <!-- Font Awesome -->
+    <!-- Iam Magic !! -->
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+      rel="stylesheet"
+    />
+    <!-- Fonts -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.0.3/css/font-awesome.css"
+    />
+    <!-- Google Fonts -->
+    <link
+      href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap"
+      rel="stylesheet"
+    />
+    <!-- MDB -->
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/4.2.0/mdb.min.css"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+      <div class="container-fluid">
+        <a class="navbar-brand" href="#">Age and Gender Prediction</a>
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-mdb-toggle="collapse"
+          data-mdb-target="#navbarNavAltMarkup"
+          aria-controls="navbarNavAltMarkup"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
+          <i class="fas fa-bars"></i>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+          <div class="navbar-nav">
+            <a class="nav-link active" aria-current="page" href="#">Home</a>
+            <a class="nav-link" href="#predict">Predict</a>
+            <a class="nav-link" href="#results">Result</a>
+            <a class="nav-link" href="#sample">Sample</a>
+            <a class="nav-link" href="#contact">Contact</a>
+          </div>
+        </div>
+
+
+      </div>
+    </nav>
+    <!-- Carousel wrapper -->
+    <div
+      id="carouselVideoExample"
+      class="carousel slide carousel-fade"
+      data-mdb-ride="carousel"
+    >
+      <!-- Indicators -->
+      <div class="carousel-indicators">
+        <button
+          type="button"
+          data-mdb-target="#carouselVideoExample"
+          data-mdb-slide-to="0"
+          class="active"
+          aria-current="true"
+          aria-label="Slide 1"
+        ></button>
+        <button
+          type="button"
+          data-mdb-target="#carouselVideoExample"
+          data-mdb-slide-to="1"
+          aria-label="Slide 2"
+        ></button>
+        <button
+          type="button"
+          data-mdb-target="#carouselVideoExample"
+          data-mdb-slide-to="2"
+          aria-label="Slide 3"
+        ></button>
+      </div>
+
+      <!-- Inner -->
+      <div class="carousel-inner">
+        <!-- Single item -->
+        <div class="carousel-item active">
+          <video class="img-fluid" autoplay loop muted>
+            <source
+              src="https://mdbcdn.b-cdn.net/img/video/Tropical.mp4"
+              type="video/mp4"
+            />
+          </video>
+          <div class="carousel-caption d-none d-md-block">
+            <h5>First slide label</h5>
+            <p>Nulla vitae elit libero, a pharetra augue mollis interdum.</p>
+          </div>
+        </div>
+
+        <!-- Single item -->
+        <div class="carousel-item">
+          <video class="img-fluid" autoplay loop muted>
+            <source
+              src="https://mdbcdn.b-cdn.net/img/video/forest.mp4"
+              type="video/mp4"
+            />
+          </video>
+          <div class="carousel-caption d-none d-md-block">
+            <h5>Second slide label</h5>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+          </div>
+        </div>
+
+        <!-- Single item -->
+        <div class="carousel-item">
+          <video class="img-fluid" autoplay loop muted>
+            <source
+              src="https://mdbcdn.b-cdn.net/img/video/Agua-natural.mp4"
+              type="video/mp4"
+            />
+          </video>
+          <div class="carousel-caption d-none d-md-block">
+            <h5>Third slide label</h5>
+            <p>
+              Praesent commodo cursus magna, vel scelerisque nisl consectetur.
+            </p>
+          </div>
+        </div>
+      </div>
+      <!-- Inner -->
+
+      <!-- Controls -->
+      <button
+        class="carousel-control-prev"
+        type="button"
+        data-mdb-target="#carouselVideoExample"
+        data-mdb-slide="prev"
+      >
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Previous</span>
+      </button>
+      <button
+        class="carousel-control-next"
+        type="button"
+        data-mdb-target="#carouselVideoExample"
+        data-mdb-slide="next"
+      >
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Next</span>
+      </button>
+    </div>
+    <!-- Carousel wrapper -->
+
+    <div class="container mt-5" id="predict">
+      <form method="post" action="{{url_for('predict')}}" enctype="multipart/form-data">
+        <h3 class="text-center">Upload an Image</h3>
+
+        <label for="upload" id="upload-label">Your Image</label>
+        <input
+          class="form-control my-2"
+          name="file"
+          type="file"
+          id="upload"
+          multiple
+          onchange="readURL(this)"
+        />
+
+       
+          
+        <div class="container">
+          <img
+          class="mb-5 mx-auto "
+          id="image"
+          src=""
+          alt="" height="400px"/>
+
+          </div>
+          
+       
+       
+
+        <!-- Submit button -->
+        <input type="submit" class="btn btn-primary btn-block mb-4">
+        </input>
+      </form>
+    </div>
+
+    <h2 id="results" class="text-center mt-5">Your results</h2>
+    
+    {% if predictions == None %}
+    <p class="text-center">Please upload some image to get results!</p>
+        
+    {% endif %}
+
+    {% if predictions != None %}
+    <!-- Card starts here -->
+    <div class="card mb-3 d-block mx-auto" style="max-width: 540px;">
+      <div class="row g-0">
+        <div class="col-md-4">
+          <img
+          src="{{ image }}"
+          alt="Trendy Pants and Shoes"
+          class="img-fluid rounded-start"
+          />
+        </div>
+        
+        
+        <div class="col-md-8">
+          <div class="card-body">
+            <h5 class="card-title">Gender Classification and Age Prediction Results</h5>
+            <p class="card-text">
+              Age : {{predictions[0]}} <br>
+              Gender : {{predictions[1]}}
+            </p>
+          </div>
+        </div>
+        
+      </div>
+    </div>
+    
+    <!-- Card ends here -->
+    {% endif %}
+
+    <!-- Sample Images -->
+
+    <div class="container mt-5" id="sample">
+      <h2 class="text-center">Sample Images</h2>
+
+     <div class="container image-grid">
+      
+      <img src="/static/images/image 2.jpeg" alt="">
+      <img src="/static/images/image 4.jpeg" alt="">
+      <img src="/static/images/image1.jpeg" alt="">
+      <img src="/static/images/image 5.jpeg" alt="">
+      <img src="/static/images/image 6.jpeg" alt="">
+     </div>
+    </div>
+
+
+    <!-- Footer -->
+
+    <!-- Footer -->
+<footer class="bg-dark text-center text-white" id="contact">
+  <!-- Grid container -->
+  <div class="container p-4">
+    <!-- Section: Social media -->
+    <section class="mb-4">
+     
+
+      <!-- Google -->
+      <a href="mailto:vishnukumar1105@gmail.com" class="btn btn-outline-light btn-floating m-1 gold" href="#!" role="button"
+        target="_blank"><i class="fab fa-google"></i
+      ></a>
+
+      <!-- Instagram -->
+      <a class="btn btn-outline-light btn-floating m-1 gold" href="https://www.instagram.com/_.arjunbalaji._/" role="button"
+        target="_blank"><i class="fab fa-instagram"></i
+      ></a>
+
+      <!-- Linkedin -->
+      <a href="https://in.linkedin.com/in/arjun-balaji-06b845210" class="btn btn-outline-light btn-floating m-1 gold" href="#!" role="button"
+        target="_blank"><i class="fab fa-linkedin-in"></i
+      ></a>
+
+      <!-- Github -->
+      <a class="btn btn-outline-light btn-floating m-1 gold" href="https://github.com/ArjunNo1" role="button" target="_blank"
+        ><i class="fab fa-github"></i
+      ></a>
+    </section>
+    <!-- Section: Social media -->
+
+    <!-- Section: Text -->
+    <section class="mb-4">
+
+      <h3>Iam <span class="bold">Arjun Balaji</span></h3>
+      <p>
+        Iam a passionate ML developer with skillsets in 
+        <span class="bold">ML, DL, Web development and App development</span> and Iam seeking for challenging opportunities to make use of my talents and share my knowledge for the organization's success and my own growth. 
+      </p>
+    </section>
+    <!-- Section: Text -->
+
+
+  </div>
+  <!-- Grid container -->
+
+  <!-- Copyright -->
+  <div class="text-center p-3" style="background-color: rgba(0, 0, 0, 0.2);">
+    © 2022  Developed By <a href="https://in.linkedin.com/in/arjun-balaji-06b845210" target="_blank">Arjun Balaji</a> <i class="fa fa-trophy"></i>  <a href="https://in.linkedin.com/in/satish-g-0a41b81a5" target="_blank">Satish G</a> <i class="fa fa-trophy"></i>
+    
+  </div>
+  <!-- Copyright -->
+</footer>
+<!-- Footer -->
+
+
+    
+
+!    <script src="/static/js/index.js"></script>
+    <!-- MDB -->
+    <script
+      src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"
+      type="text/javascript"
+    ></script>
+
+    <!-- MDB This was newly added --> 
+  <script
+type="text/javascript"
+src="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/4.2.0/mdb.min.js"
+></script>
+
+    <script>
+      $(document).ready(function () {
+        var input = document.getElementById("upload");
+        var infoArea = document.getElementById("upload-label");
+
+        input.addEventListener("change", showFileName);
+
+        function showFileName(event) {
+          var input = event.srcElement;
+          var fileName = input.files[0].name;
+          infoArea.textContent =
+            "Uploaded file :" + fileName ;
+        }
+
+        readURL(input);
+      });
+
+      function readURL(input) {
+        console.log("magic");
+        console.log(input.files);
+        if (input.files && input.files[0]) {
+          var reader = new FileReader();
+          console.log("Magic 2");
+
+          // After reading the image file
+          reader.onload = function (e) {
+            console.log(e.target.result);
+            $("#image").attr("src", e.target.result);
+          };
+
+          //  Reading the image file as URL
+          reader.readAsDataURL(input.files[0]);
+        }
+      }
+    </script>
+
+   
+  </body>
+</html>
